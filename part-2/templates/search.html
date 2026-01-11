@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Students</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }
+        h1 { color: #333; }
+        form { background: white; padding: 30px; border-radius: 8px; max-width: 400px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        label { display: block; margin-bottom: 5px; font-weight: bold; color: #555; }
+        input[type="text"], input[type="email"] {
+            width: 100%; padding: 10px; margin-bottom: 20px;
+            border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;
+        }
+        input:focus { border-color: #2196F3; outline: none; }
+        .btn { padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; text-decoration: none; }
+        .btn-submit { background: #2196F3; color: white; }
+        .btn-cancel { background: #ccc; color: #333; margin-left: 10px; }
+        .btn:hover { opacity: 0.9; }
+        .info { background: #e3f2fd; padding: 10px; border-radius: 4px; margin-bottom: 20px; color: #1565c0; }
+    </style>
+</head>
+<body>
+    <h1>Search Students</h1>
+    <form method="POST">
+        <input type="text" name="query" placeholder="Enter student name..." required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if students %}
+        <h2>Results:</h2>
+        <ul>
+            {% for student in students %}
+                <li>{{ student.name }} - {{ student.email }} - {{ student.course }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>

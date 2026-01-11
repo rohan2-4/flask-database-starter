@@ -34,6 +34,7 @@
     {% endwith %}
 
     <a href="{{ url_for('add_student') }}" class="btn btn-add">+ Add New Student</a>
+    <a href="{{ url_for('search_student') }}" class="btn btn-search">🔍 Search Students</a>
 
     {% if students %}
         <table>
